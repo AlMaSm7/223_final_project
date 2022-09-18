@@ -63,4 +63,14 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PostMapping("/users")
+    public ResponseEntity<?> registerUserAsAdmin(@RequestBody User user){
+        try{
+            userRepo.save(user);
+            return ResponseEntity.ok().body(user);
+        }catch (Exception e) {
+            return ResponseEntity.internalServerError().body("Error while saving user");
+        }
+    }
 }
