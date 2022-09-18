@@ -22,6 +22,10 @@ public class Reservation {
     @Setter
     private LocalDateTime endDate;
 
+    @Getter
+    @Setter
+    private int accepted;
+
     @ManyToOne
     @JoinColumn(name = "place_id", nullable = false)
     @Getter
