@@ -8,7 +8,7 @@
         <version>2.7.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>io.almasm7</groupId>
     <artifactId>coworking-space</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>coworking-space</name>
@@ -25,7 +25,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
