@@ -1,5 +1,6 @@
 package io.AlMaSm7.coworkingspace.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,6 +29,7 @@ public class User {
     private String email;
     @Getter
     @Setter
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     @Getter
     @Setter
