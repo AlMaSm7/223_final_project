@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Component
 public class JWTUtil {
@@ -19,12 +19,14 @@ public class JWTUtil {
     private String secret;
 
     public String generateToken(String email, String role) throws IllegalArgumentException, JWTCreationException {
+        LocalDateTime now = LocalDateTime.now();
         return JWT.create()
                 .withSubject("User Details")
                 .withClaim("email", email)
                 .withClaim("role", role)
-                .withIssuedAt(Instant.from(LocalDate.now()))
+                .withIssuedAt(Instant.from(now))
                 .withIssuer("co-working-space")
+                .withExpiresAt(Instant.from(now.plusHours(24)))
                 .sign(Algorithm.HMAC256(secret));
     }
 
