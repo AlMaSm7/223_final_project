@@ -33,6 +33,6 @@ public class User {
     private String password;
     @Getter
     @Setter
-    private int role;
+    private String role;
 
 }
