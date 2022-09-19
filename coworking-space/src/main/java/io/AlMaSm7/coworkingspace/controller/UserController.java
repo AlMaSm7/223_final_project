@@ -1,75 +1,79 @@
 package io.AlMaSm7.coworkingspace.controller;
 
 import io.AlMaSm7.coworkingspace.model.User;
-import io.AlMaSm7.coworkingspace.repositories.UserRepo;
+import io.AlMaSm7.coworkingspace.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class UserController {
-    private final UserRepo userRepo;
+    private final UserService userService;
 
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getUsers(){
-        List<User> users = userRepo.findAll();
-        if (users.isEmpty()) return ResponseEntity.noContent().build();
-        return ResponseEntity.ok().body(users);
+    public ResponseEntity<List<User>> getUsers() {
+        List<User> users = userService.getUsers();
+        ResponseEntity res;
+        if (users.isEmpty()) {
+            res = ResponseEntity.noContent().build();
+        } else {
+            res = ResponseEntity.ok().body(users);
+        }
+        return res;
     }
 
-    @DeleteMapping("/users")
-    public ResponseEntity<?> delUser(@RequestBody User user){
-        Optional<User> user1 = userRepo.findById(user.getId());
-        if (user1.isEmpty()) return ResponseEntity.notFound().build();
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<?> delUser(@PathVariable long id) {
         // Delete user
-        try{
-            userRepo.delete(user1.get());
-            return ResponseEntity.ok().body(user1.get().getEmail() + "User deleted successfully");
-        }catch (Exception e){
+        ResponseEntity res;
+        try {
+            User user1 = userService.deleteUser(id);
+            if (user1 == null) {
+                res = ResponseEntity.notFound().build();
+            } else {
+                res = ResponseEntity.ok().body(user1.getEmail() + "User deleted successfully");
+            }
+            return res;
+        } catch (Exception e) {
             return ResponseEntity.internalServerError().body("There was an issue deleting the user");
         }
     }
 
-    @PatchMapping("/users")
-    public ResponseEntity<?> updateUser(@RequestBody User user){
-        try{
-            Optional<User> userToUpdate = userRepo.findById(user.getId());
-            User updatedUser = userToUpdate.get();
-            if(updatedUser == null) return ResponseEntity.notFound().build();
-            //Add edited values to User found in db
-            updatedUser.setEmail(user.getEmail());
-            updatedUser.setLastname(user.getLastname());
-            updatedUser.setReservations(user.getReservations());
-            updatedUser.setFirstname(user.getFirstname());
-            updatedUser.setRole(user.getRole());
-            userRepo.save(updatedUser);
-            return ResponseEntity.ok().body(user.getEmail() + "User updated successfully");
-        }catch (Exception e){
+    @PutMapping("/users")
+    public ResponseEntity<?> updateUser(@RequestBody User user) {
+        ResponseEntity res;
+        try {
+            if (userService.updateUser(user) != null) {
+                res = ResponseEntity.notFound().build();
+            } else {
+                res = ResponseEntity.ok().body(user.getEmail() + "User updated successfully");
+            }
+            return res;
+        } catch (Exception e) {
             return ResponseEntity.internalServerError().body("There was an issue updating the user");
         }
     }
 
     @GetMapping("/users/{id}")
-    public ResponseEntity<?> getUserById(@PathVariable long id){
-        try{
-            return ResponseEntity.ok().body(userRepo.findById(id));
-        } catch (Exception e){
+    public ResponseEntity<?> getUserById(@PathVariable long id) {
+        try {
+            return ResponseEntity.ok().body(userService.getUserById(id));
+        } catch (Exception e) {
             return ResponseEntity.notFound().build();
         }
     }
 
     @PostMapping("/users")
-    public ResponseEntity<?> registerUserAsAdmin(@RequestBody User user){
-        try{
-            userRepo.save(user);
+    public ResponseEntity<?> registerUserAsAdmin(@RequestBody User user) {
+        try {
+            userService.createNewUser(user);
             return ResponseEntity.ok().body(user);
-        }catch (Exception e) {
+        } catch (Exception e) {
             return ResponseEntity.internalServerError().body("Error while saving user");
         }
     }

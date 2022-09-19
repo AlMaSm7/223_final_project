@@ -9,22 +9,17 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@Getter
+@Setter
 public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
     private long id;
 
-    @Getter
-    @Setter
     private String description;
 
-    @Setter
-    @Getter
     private String nr;
 
     @OneToMany(mappedBy = "place")
-    @Getter
-    @Setter
     private List<Reservation> reservations;
 }

@@ -10,31 +10,24 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@Getter
+@Setter
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
     private long id;
-    @Getter
-    @Setter
+
     private String firstname;
-    @Getter
-    @Setter
+
     private String lastname;
-    @Getter
-    @Setter
+
     private String email;
-    @Getter
-    @Setter
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-    @Getter
-    @Setter
+
     private String role;
 
     @OneToMany(mappedBy = "user")
-    @Getter
-    @Setter
     private List<Reservation> reservations;
 }

@@ -1,0 +1,56 @@
+package io.AlMaSm7.coworkingspace.services;
+
+import io.AlMaSm7.coworkingspace.model.Place;
+import io.AlMaSm7.coworkingspace.repositories.PlaceRepo;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@AllArgsConstructor(onConstructor = @__(@Autowired))
+public class PlaceService {
+    private final PlaceRepo placeRepo;
+
+    @Transactional
+    public List<Place> getPlaces() {
+        return placeRepo.findAll();
+    }
+
+    @Transactional
+    public Place addPlace(Place place) {
+        placeRepo.save(place);
+        return place;
+    }
+    @Transactional
+
+    public Place getPlaceById(long id) {
+        Optional<Place> place = placeRepo.findById(id);
+        return place.get();
+    }
+
+    @Transactional
+    public Place updatePlace(Place place) {
+        Optional<Place> userToUpdate = placeRepo.findById(place.getId());
+        Place updatedPlace = userToUpdate.get();
+        if (updatedPlace != null){
+            updatedPlace.setDescription(place.getDescription());
+            updatedPlace.setNr(place.getNr());
+            updatedPlace.setReservations(place.getReservations());
+            placeRepo.save(updatedPlace);
+        }
+        return updatedPlace;
+    }
+
+    @Transactional
+    public Place deletePlace(long id) {
+        Optional<Place> place = placeRepo.findById(id);
+        if (place.isEmpty()){
+            placeRepo.delete(place.get());
+        }
+        return place.get();
+    }
+}

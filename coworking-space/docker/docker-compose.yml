@@ -8,6 +8,7 @@ services:
       - '3306:3306'
     volumes:
       - ./mysql_db_data:/var/lib/mysql
+      - ./coworking-space.sql:/docker-entrypoint-initdb.d/coworking-space.sql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456
