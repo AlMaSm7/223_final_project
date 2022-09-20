@@ -16,9 +16,9 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-/*@JsonIdentityInfo(
+@JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")*/
+        property = "id")
 public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +31,7 @@ public class Place {
     private String nr;
 
     @OneToMany(mappedBy = "place")
-    //@JsonManagedReference
-    //@JsonView(Views.Internal.class)
+    @JsonManagedReference
+    @JsonView(Views.Internal.class)
     private List<Reservation> reservations;
 }

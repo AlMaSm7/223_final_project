@@ -32,11 +32,11 @@ public class Reservation {
 
     @ManyToOne
     @JoinColumn(name = "place_id", nullable = false)
-    //@JsonManagedReference
+    @JsonManagedReference
     private Place place;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    //@JsonManagedReference
+    @JsonManagedReference
     private User user;
 }

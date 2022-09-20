@@ -10,13 +10,21 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
 /*@JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")*/
+@NoArgsConstructor
 public class User {
+    public User(String firstname, String lastname, String email, String password) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.role = "member";
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -37,7 +45,7 @@ public class User {
     private String role;
 
     @OneToMany(mappedBy = "user")
-    //@JsonBackReference
+    @JsonBackReference
     //@JsonView(Views.Internal.class)
     private List<Reservation> reservations;
 }

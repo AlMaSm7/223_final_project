@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `coworking_space`.`user` (
   `firstname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(2000) NOT NULL,
   `role` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
@@ -80,3 +80,4 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO `coworking_space`.`place`(`description`, `nr`) VALUES ('First seat','17'), ('second seat','17');
+INSERT INTO `coworking_space`.`user` (`firstname`, `lastname`, `email`, `password`, `role`) VALUES ('first', 'lastname', 'email@gmail.com', '$2y$10$ApI2i2/hizoQwO5F9f20cejlfq7/5cpjTx7Cc31y2j/lHHl7Sbc5O', 'admin');
