@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotWritableException;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<User>> getUsers() {
         List<User> users = userService.getUsers();
         ResponseEntity res;
@@ -30,6 +32,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> delUser(@PathVariable long id) {
         // Delete user
         ResponseEntity res;
@@ -47,6 +50,7 @@ public class UserController {
     }
 
     @PutMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         ResponseEntity res;
         try {
@@ -62,6 +66,7 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> getUserById(@PathVariable long id) {
         try {
             ResponseEntity res;
@@ -77,6 +82,7 @@ public class UserController {
     }
 
     @PostMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> registerUserAsAdmin(@RequestBody User user) {
         try {
             userService.createNewUser(user);

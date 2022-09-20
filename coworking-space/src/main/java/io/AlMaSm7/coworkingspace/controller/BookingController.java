@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +27,7 @@ public class BookingController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> getBookings() {
         List<Reservation> bookings = bookingService.getReservations();
         ResponseEntity res;
@@ -50,6 +52,7 @@ public class BookingController {
     }
 
     @PostMapping("/authorize")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Reservation> authorizeReservation(@RequestBody ControlReservation reservation){
         try {
             ResponseEntity responseEntity;
