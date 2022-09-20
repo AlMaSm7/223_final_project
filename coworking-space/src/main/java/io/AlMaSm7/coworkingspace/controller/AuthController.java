@@ -20,6 +20,7 @@ import java.security.GeneralSecurityException;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.UUID;
 
 @RestController
@@ -72,7 +73,7 @@ public class AuthController {
                 val id = UUID.randomUUID().toString();
                 val scopes = new ArrayList<String>();
 
-                if (member.getRole() == "admin") {
+                if (Objects.equals(member.getRole(), "admin")) {
                     scopes.add("ADMIN");
                 }
 

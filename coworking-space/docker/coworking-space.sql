@@ -80,4 +80,6 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO `coworking_space`.`place`(`description`, `nr`) VALUES ('First seat','17'), ('second seat','17');
-INSERT INTO `coworking_space`.`user` (`firstname`, `lastname`, `email`, `password`, `role`) VALUES ('first', 'lastname', 'email@gmail.com', '$2y$10$ApI2i2/hizoQwO5F9f20cejlfq7/5cpjTx7Cc31y2j/lHHl7Sbc5O', 'admin');
+INSERT INTO `coworking_space`.`user` (`firstname`, `lastname`, `email`, `password`, `role`) VALUES ('first', 'lastname', 'email@gmail.com', '$2a$10$TGE0ugSuaL1FBpn53Lpe0.N2.EoF3/J4YLLSEp533/rRHEI6Th7Am', 'admin');
+
+-- password for admin: 12345

@@ -47,7 +47,6 @@ public class UserService {
             //Add edited values to User found in db
             updatedUser.setEmail(user.getEmail());
             updatedUser.setLastname(user.getLastname());
-            updatedUser.setReservations(user.getReservations());
             updatedUser.setFirstname(user.getFirstname());
             updatedUser.setRole(user.getRole());
             userRepo.save(updatedUser);

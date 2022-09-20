@@ -1,20 +1,15 @@
 package io.AlMaSm7.coworkingspace.model;
 
-import com.fasterxml.jackson.annotation.*;
-import io.AlMaSm7.coworkingspace.config.Views;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
 @Setter
-/*@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id")*/
 @NoArgsConstructor
 public class User {
     public User(String firstname, String lastname, String email, String password) {
@@ -43,9 +38,4 @@ public class User {
 
     @Column(name = "role")
     private String role;
-
-    @OneToMany(mappedBy = "user")
-    @JsonBackReference
-    //@JsonView(Views.Internal.class)
-    private List<Reservation> reservations;
 }

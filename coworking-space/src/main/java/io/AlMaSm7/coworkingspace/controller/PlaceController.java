@@ -5,6 +5,7 @@ import io.AlMaSm7.coworkingspace.services.PlaceService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,6 +34,7 @@ public class PlaceController {
     }
 
     @PostMapping("/places")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> addPlace(@RequestBody Place place) {
         ResponseEntity res;
         try {
@@ -45,6 +47,7 @@ public class PlaceController {
     }
 
     @GetMapping("/places/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> getPlaceById(@PathVariable long id) {
         ResponseEntity res;
         try {
@@ -61,6 +64,7 @@ public class PlaceController {
     }
 
     @PutMapping(value = "/places", produces = "application/json", consumes="application/json")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<?> updatePlace(@RequestBody Place place) {
         ResponseEntity res;
         try {
@@ -77,11 +81,12 @@ public class PlaceController {
     }
 
     @DeleteMapping("/places/{id}")
-    public ResponseEntity<?> deletePlace(@PathVariable long place) {
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<?> deletePlace(@PathVariable long id) {
         ResponseEntity res;
         //Delete place
         try {
-            Place place1 = placeService.deletePlace(place);
+            Place place1 = placeService.deletePlace(id);
             if (place1 == null) {
                 res = ResponseEntity.notFound().build();
             } else {

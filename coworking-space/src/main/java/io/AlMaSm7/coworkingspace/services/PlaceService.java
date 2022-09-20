@@ -38,11 +38,11 @@ public class PlaceService {
     @Transactional
     public Place updatePlace(Place place) {
         Optional<Place> userToUpdate = placeRepo.findById(place.getId());
-        Place updatedPlace = userToUpdate.get();
-        if (updatedPlace != null){
+        Place updatedPlace = null;
+        if (userToUpdate.isPresent()){
+            updatedPlace = userToUpdate.get();
             updatedPlace.setDescription(place.getDescription());
             updatedPlace.setNr(place.getNr());
-            updatedPlace.setReservations(place.getReservations());
             placeRepo.save(updatedPlace);
         }
         return updatedPlace;
