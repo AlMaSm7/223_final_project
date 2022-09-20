@@ -81,5 +81,6 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO `coworking_space`.`place`(`description`, `nr`) VALUES ('First seat','17'), ('second seat','17');
 INSERT INTO `coworking_space`.`user` (`firstname`, `lastname`, `email`, `password`, `role`) VALUES ('first', 'lastname', 'email@gmail.com', '$2a$10$TGE0ugSuaL1FBpn53Lpe0.N2.EoF3/J4YLLSEp533/rRHEI6Th7Am', 'admin');
+INSERT INTO `coworking_space`.`reservation`(start_date, end_date, place_id, user_id, accepted) VALUES ('2022-09-20 13:00:29', '2022-09-20 17:00:28.000000', '2', '1', '0');
 
 -- password for admin: 12345

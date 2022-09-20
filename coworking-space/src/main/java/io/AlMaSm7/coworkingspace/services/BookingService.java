@@ -2,6 +2,7 @@ package io.AlMaSm7.coworkingspace.services;
 
 import io.AlMaSm7.coworkingspace.config.ControlReservation;
 import io.AlMaSm7.coworkingspace.exception.DateException;
+import io.AlMaSm7.coworkingspace.exception.StatusException;
 import io.AlMaSm7.coworkingspace.model.Reservation;
 import io.AlMaSm7.coworkingspace.repositories.ReservationRepo;
 import lombok.AllArgsConstructor;
@@ -20,10 +21,12 @@ public class BookingService {
 
     @Transactional
     public String getReservationStateById(long id) {
-        int status = reservationRepo.findById(id).isPresent() ?
-                reservationRepo.findById(id).get().getAccepted()
-                : null;
-        return setStatus(status);
+        Optional<Reservation> reservation = reservationRepo.findById(id);
+        String status = null;
+        if(reservation.isPresent()){
+            status = setStatus(reservation.get().getAccepted());
+        }
+        return status;
     }
 
     @Transactional
@@ -64,12 +67,13 @@ public class BookingService {
     }
 
     @Transactional
-    public Reservation authorizeReservationProcess(ControlReservation controlReservation){
+    public Reservation authorizeReservationProcess(ControlReservation controlReservation) throws StatusException {
         Optional<Reservation> res = reservationRepo.findById(controlReservation.getId());
         Reservation reservation = null;
         if(res.isPresent()){
             reservation = res.get();
-            reservation.setAccepted((int) controlReservation.getId());
+            int status = getStatus(controlReservation.getAnswer());
+            reservation.setAccepted(status);
             reservationRepo.save(reservation);
         }
         return reservation;
@@ -84,6 +88,20 @@ public class BookingService {
         } else {
             return null;
         }
+    }
+
+    private int getStatus(String req) throws StatusException {
+        int result = 0;
+        if (req.equals("pending")) {
+            result = 0;
+        } else if (req.equals("accepted")) {
+            result = 1;
+        } else if(req.equals("denied")) {
+            result = 2;
+        } else {
+            throw new StatusException("Use these states: pending, accepted, or denied");
+        }
+        return result;
     }
 
 }
