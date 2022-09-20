@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping(value = "/api")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PlaceController {
 
@@ -60,7 +60,7 @@ public class PlaceController {
         }
     }
 
-    @PutMapping("/places")
+    @PutMapping(value = "/places", produces = "application/json", consumes="application/json")
     public ResponseEntity<?> updatePlace(@RequestBody Place place) {
         ResponseEntity res;
         try {
@@ -76,12 +76,12 @@ public class PlaceController {
         }
     }
 
-    @DeleteMapping("/places")
-    public ResponseEntity<?> deletePlace(@RequestBody Place place) {
+    @DeleteMapping("/places/{id}")
+    public ResponseEntity<?> deletePlace(@PathVariable long place) {
         ResponseEntity res;
         //Delete place
         try {
-            Place place1 = placeService.deletePlace(place.getId());
+            Place place1 = placeService.deletePlace(place);
             if (place1 == null) {
                 res = ResponseEntity.notFound().build();
             } else {

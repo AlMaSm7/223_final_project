@@ -68,14 +68,10 @@ CREATE TABLE IF NOT EXISTS `coworking_space`.`reservation` (
   INDEX `fk_reservation_user1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_reservation_place`
     FOREIGN KEY (`place_id`)
-    REFERENCES `coworking_space`.`place` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    REFERENCES `coworking_space`.`place` (`id`),
   CONSTRAINT `fk_reservation_user1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `coworking_space`.`user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    REFERENCES `coworking_space`.`user` (`id`))
 ENGINE = InnoDB;
 
 

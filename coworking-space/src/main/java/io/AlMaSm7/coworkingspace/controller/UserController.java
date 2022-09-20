@@ -4,18 +4,20 @@ import io.AlMaSm7.coworkingspace.model.User;
 import io.AlMaSm7.coworkingspace.services.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
+@RequestMapping("/api/users")
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping
     public ResponseEntity<List<User>> getUsers() {
         List<User> users = userService.getUsers();
         ResponseEntity res;
@@ -27,7 +29,7 @@ public class UserController {
         return res;
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<?> delUser(@PathVariable long id) {
         // Delete user
         ResponseEntity res;
@@ -44,7 +46,7 @@ public class UserController {
         }
     }
 
-    @PutMapping("/users")
+    @PutMapping
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         ResponseEntity res;
         try {
@@ -54,21 +56,27 @@ public class UserController {
                 res = ResponseEntity.ok().body(user.getEmail() + "User updated successfully");
             }
             return res;
-        } catch (Exception e) {
+        } catch (HttpMessageNotWritableException e) {
             return ResponseEntity.internalServerError().body("There was an issue updating the user");
         }
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable long id) {
         try {
-            return ResponseEntity.ok().body(userService.getUserById(id));
+            ResponseEntity res;
+            if (userService.getUserById(id).isEmpty()){
+                res = ResponseEntity.notFound().build();
+            } else {
+                res = ResponseEntity.ok().body(userService.getUserById(id));
+            }
+            return res;
         } catch (Exception e) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.internalServerError().build();
         }
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public ResponseEntity<?> registerUserAsAdmin(@RequestBody User user) {
         try {
             userService.createNewUser(user);

@@ -1,7 +1,9 @@
 package io.AlMaSm7.coworkingspace.services;
 
 import io.AlMaSm7.coworkingspace.model.Place;
+import io.AlMaSm7.coworkingspace.model.Reservation;
 import io.AlMaSm7.coworkingspace.repositories.PlaceRepo;
+import io.AlMaSm7.coworkingspace.repositories.ReservationRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,7 @@ import java.util.Optional;
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PlaceService {
     private final PlaceRepo placeRepo;
+    private final ReservationRepo resRepo;
 
     @Transactional
     public List<Place> getPlaces() {
@@ -48,7 +51,11 @@ public class PlaceService {
     @Transactional
     public Place deletePlace(long id) {
         Optional<Place> place = placeRepo.findById(id);
-        if (place.isEmpty()){
+        if(place.isPresent()){
+            Reservation resPlace = resRepo.findByPlaceId(place.get().getId());
+            if(resPlace != null){
+                resRepo.delete(resPlace);
+            }
             placeRepo.delete(place.get());
         }
         return place.get();

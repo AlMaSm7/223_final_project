@@ -1,0 +1,9 @@
+PUT http://localhost:8080/api/places
+Content-Type: application/json
+
+{
+    "id": 1,
+    "description": "asdfasdfdfa",
+    "nr": "N18",
+    "reservations": []
+}

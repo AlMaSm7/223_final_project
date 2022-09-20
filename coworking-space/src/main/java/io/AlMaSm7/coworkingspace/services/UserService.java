@@ -1,6 +1,8 @@
 package io.AlMaSm7.coworkingspace.services;
 
+import io.AlMaSm7.coworkingspace.model.Reservation;
 import io.AlMaSm7.coworkingspace.model.User;
+import io.AlMaSm7.coworkingspace.repositories.ReservationRepo;
 import io.AlMaSm7.coworkingspace.repositories.UserRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepo userRepo;
+    private final ReservationRepo resReop;
 
     @Transactional
     public List<User> getUsers() {
@@ -38,8 +41,9 @@ public class UserService {
     @Transactional
     public User updateUser(User user) {
         Optional<User> userToUpdate = userRepo.findById(user.getId());
-        User updatedUser = userToUpdate.get();
-        if (updatedUser != null){
+        User updatedUser;
+        if (userToUpdate.isPresent()){
+            updatedUser = userToUpdate.get();
             //Add edited values to User found in db
             updatedUser.setEmail(user.getEmail());
             updatedUser.setLastname(user.getLastname());
@@ -48,6 +52,8 @@ public class UserService {
             updatedUser.setRole(user.getRole());
             userRepo.save(updatedUser);
 
+        } else {
+            updatedUser = null;
         }
         return updatedUser;
     }
@@ -55,7 +61,11 @@ public class UserService {
     @Transactional
     public User deleteUser(long id) {
         Optional<User> user1 = userRepo.findById(id);
-        if (!user1.isEmpty()){
+        if (user1.isPresent()){
+            Reservation resUser = resReop.findByUserId(user1.get().getId());
+            if(resUser != null ){
+                resReop.delete(resUser);
+            }
             userRepo.delete(user1.get());
         }
         return user1.get();
