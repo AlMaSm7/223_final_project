@@ -1,3 +1,59 @@
+commit 31a1b3f727df19e78d9c60799259f966b16c956a
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 14:43:53 2022 +0200
+
+    test: Tested two get endpoints from user
+
+commit bbe6a28476e9d9e60ac3fe99685e39bc77ec5739
+Merge: f93dfff 49badce
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 14:28:21 2022 +0200
+
+    Merge branch 'main' of https://github.com/AlMaSm7/223_final_project
+
+commit f93dfffe28a3f1d1e86996168ee94b042a25813f
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 14:28:07 2022 +0200
+
+    deleted user test for now
+
+commit 35650e2a3fe2aedf1a72bf67207de65011ba9986
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 14:27:26 2022 +0200
+
+    test: added register test
+
+commit 49badce75ac4da1f269f72f3b91dd1a4e307f7fa
+Author: Alex Smolders <70206577+AlMaSm7@users.noreply.github.com>
+Date:   Wed Sep 21 13:44:54 2022 +0200
+
+    added location of admin pwd for testing
+
+commit 8201ad6d0fafb63f0175fd819b707d271ce751e9
+Merge: 8d779b5 bd89a11
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 13:26:53 2022 +0200
+
+    Merge branch 'main' of https://github.com/AlMaSm7/223_final_project
+
+commit 8d779b5aa5f7a9abe3bea2a19fbd29c5ea503cb7
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 13:26:46 2022 +0200
+
+    added OpenAPI documentation for all endpoints
+
+commit bd89a11fa21c4b9f0b5766afa0b67d6514ecdcf4
+Author: Alex Smolders <70206577+AlMaSm7@users.noreply.github.com>
+Date:   Wed Sep 21 13:24:55 2022 +0200
+
+    added postman config
+
+commit ec3843272776cd4f99924d79fe848e085633d669
+Author: Alex Smolders <70206577+AlMaSm7@users.noreply.github.com>
+Date:   Wed Sep 21 13:14:10 2022 +0200
+
+    added link referencing itself
+
 commit e451b344418dff23dc7ba1d3431773de7e75a010
 Author: Alex Smolders <70206577+AlMaSm7@users.noreply.github.com>
 Date:   Wed Sep 21 13:00:21 2022 +0200
