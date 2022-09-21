@@ -2,6 +2,7 @@ package io.AlMaSm7.coworkingspace.controller;
 
 import io.AlMaSm7.coworkingspace.model.User;
 import io.AlMaSm7.coworkingspace.services.UserService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,6 +21,10 @@ public class UserController {
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "Get all users",
+            operationId = "getUsers"
+    )
     public ResponseEntity<List<User>> getUsers() {
         List<User> users = userService.getUsers();
         ResponseEntity res;
@@ -33,6 +38,10 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "Delete user with id",
+            operationId = "deleteUser"
+    )
     public ResponseEntity<?> delUser(@PathVariable long id) {
         // Delete user
         ResponseEntity res;
@@ -51,6 +60,10 @@ public class UserController {
 
     @PutMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "Update user with req body",
+            operationId = "updateUser"
+    )
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         ResponseEntity res;
         try {
@@ -67,6 +80,10 @@ public class UserController {
 
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "Get user by id",
+            operationId = "getUserById"
+    )
     public ResponseEntity<?> getUserById(@PathVariable long id) {
         try {
             ResponseEntity res;
@@ -83,6 +100,10 @@ public class UserController {
 
     @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "Create new user on db",
+            operationId = "postUser"
+    )
     public ResponseEntity<?> registerUserAsAdmin(@RequestBody User user) {
         try {
             userService.createNewUser(user);

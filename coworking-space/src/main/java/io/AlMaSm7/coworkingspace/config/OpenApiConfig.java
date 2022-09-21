@@ -15,14 +15,14 @@ public class OpenApiConfig {
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
                 .packagesToScan("io.AlMaSm7.coworkingspace.controller")
-                .group("crud-api")
+                .group("coworking-api")
                 .build();
     }
 
     @Bean
     public OpenAPI openAPI() {
         return new OpenAPI()
-                .info(new Info().title("CRUD API").version("v1.0.0"))
+                .info(new Info().title("COWORKING SPACE API").version("v1.0.0"))
                 .components(new Components()
                         .addSecuritySchemes("JWT Auth", new SecurityScheme()
                                 .name("Authorization")

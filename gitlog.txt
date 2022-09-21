@@ -1,3 +1,15 @@
+commit e451b344418dff23dc7ba1d3431773de7e75a010
+Author: Alex Smolders <70206577+AlMaSm7@users.noreply.github.com>
+Date:   Wed Sep 21 13:00:21 2022 +0200
+
+    Added how to test description
+
+commit 4018e8f4dffe76d34fa5317c9a042f163e9a2eee
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 10:37:55 2022 +0200
+
+    updated commits
+
 commit 64b3ca4b64488cc1883fdfbc40c5bbfc02b40e14
 Author: alex_m_s <alex_m_s@yahoo.com>
 Date:   Wed Sep 21 10:36:45 2022 +0200

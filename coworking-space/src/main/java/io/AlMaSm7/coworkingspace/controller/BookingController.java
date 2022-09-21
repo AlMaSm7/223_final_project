@@ -5,6 +5,7 @@ import io.AlMaSm7.coworkingspace.exception.DateException;
 import io.AlMaSm7.coworkingspace.exception.StatusException;
 import io.AlMaSm7.coworkingspace.model.Reservation;
 import io.AlMaSm7.coworkingspace.services.BookingService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,10 @@ public class BookingController {
     private final BookingService bookingService;
 
     @GetMapping("/status/{id}")
+    @Operation(
+            summary = "read single booking status",
+            operationId = "getBooking"
+    )
     public ResponseEntity<String> getBookingById(@PathVariable long id) {
         String status = bookingService.getReservationStateById(id);
         if (status == null) {
@@ -35,6 +40,10 @@ public class BookingController {
 
     @GetMapping
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "get all bookings made",
+            operationId = "getAllBookings"
+    )
     public ResponseEntity<?> getBookings() {
         List<Reservation> bookings = bookingService.getReservations();
         ResponseEntity res;
@@ -47,6 +56,10 @@ public class BookingController {
     }
 
     @PostMapping
+    @Operation(
+            summary = "Create new booking on db",
+            operationId = "postBooking"
+    )
     public ResponseEntity<?> createBooking(@RequestBody Reservation reservation) {
         log.info(String.valueOf(reservation));
         try {
@@ -60,6 +73,10 @@ public class BookingController {
 
     @PutMapping("/authorize")
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "Authorize or deny reservation as an admin",
+            operationId = "authorizeReservation"
+    )
     public ResponseEntity<?> authorizeReservation(@RequestBody ControlReservation reservation) {
         try {
             ResponseEntity responseEntity;

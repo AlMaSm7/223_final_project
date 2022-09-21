@@ -2,6 +2,7 @@ package io.AlMaSm7.coworkingspace.controller;
 
 import io.AlMaSm7.coworkingspace.model.Place;
 import io.AlMaSm7.coworkingspace.services.PlaceService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,10 @@ public class PlaceController {
     private final PlaceService placeService;
 
     @GetMapping("/places")
+    @Operation(
+            summary = "get all places available on db",
+            operationId = "getPlaces"
+    )
     public ResponseEntity<?> getPlaces() {
         try {
             ResponseEntity res;
@@ -35,6 +40,10 @@ public class PlaceController {
 
     @PostMapping("/places")
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "add place",
+            operationId = "addPlace"
+    )
     public ResponseEntity<?> addPlace(@RequestBody Place place) {
         ResponseEntity res;
         try {
@@ -48,6 +57,10 @@ public class PlaceController {
 
     @GetMapping("/places/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "update place",
+            operationId = "update place"
+    )
     public ResponseEntity<?> getPlaceById(@PathVariable long id) {
         ResponseEntity res;
         try {
@@ -65,6 +78,10 @@ public class PlaceController {
 
     @PutMapping(value = "/places", produces = "application/json", consumes="application/json")
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "update place",
+            operationId = "update place"
+    )
     public ResponseEntity<?> updatePlace(@RequestBody Place place) {
         ResponseEntity res;
         try {
@@ -82,6 +99,10 @@ public class PlaceController {
 
     @DeleteMapping("/places/{id}")
     @PreAuthorize("hasRole('ADMIN')")
+    @Operation(
+            summary = "Delete place",
+            operationId = "delete place"
+    )
     public ResponseEntity<?> deletePlace(@PathVariable long id) {
         ResponseEntity res;
         //Delete place
