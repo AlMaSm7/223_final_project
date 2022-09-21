@@ -62,4 +62,13 @@ public class UserControllerTest {
       User users = objectMapper.readValue(res.getResponse().getContentAsString(), new TypeReference<>() {});
         assertEquals(users.getId(), 1);
     }
+
+    @Test
+    @Description("test if users are found according to Testdata")
+    public void testUserIdErrorEndpoint() throws Exception {
+        mockMvc.perform(get("/api/users/895324").header("Authorization", "Bearer " + accessToken))
+                .andExpect(status().isNotFound())
+                .andDo(print())
+                .andReturn();
+    }
 }
