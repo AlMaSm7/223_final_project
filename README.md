@@ -26,5 +26,9 @@ Once you have the Springboot API running, you can navigate to ```localhost:8080/
 
 To test app navigate in Intellij to the Test classes. In the test folder execute alll tests with the play button.
 
+## Call API
+
+In the project, you will find defined request inside of the testApiRequest. The JSON file contains a collection of all available request. To use this you, you will require ````Postman```. In postman then import this JSON file
+
 ##
 Link to repo: https://github.com/AlMaSm7/223_final_project
