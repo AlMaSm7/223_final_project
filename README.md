@@ -18,4 +18,6 @@ To staart the Spring application open it up in intellij, make sure all your depe
 
 if you clone this project, navigate to the docker directory. Here you will find the docker-compose.yml and coworking-space.sql. The docker file executes the sql file on start up. With that, all the data should be loaded for a test db. If you want to check this, logon on phpMyAdmin(localhost:8090).
 
-##
+## Endpoint documentation
+
+Once you have the Springboot API running, you can navigate to ```localhost:8080/swagger-ui/index.html```
