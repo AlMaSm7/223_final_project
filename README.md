@@ -21,3 +21,7 @@ if you clone this project, navigate to the docker directory. Here you will find 
 ## Endpoint documentation
 
 Once you have the Springboot API running, you can navigate to ```localhost:8080/swagger-ui/index.html```
+
+## Test app
+
+To test app navigate in Intellij to the Test classes. In the test folder execute alll tests with the play button.
