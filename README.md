@@ -32,3 +32,5 @@ In the project, you will find defined request inside of the testApiRequest. The 
 
 ##
 Link to repo: https://github.com/AlMaSm7/223_final_project
+
+**Check sql file for admin pwd!!!**
