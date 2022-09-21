@@ -25,3 +25,6 @@ Once you have the Springboot API running, you can navigate to ```localhost:8080/
 ## Test app
 
 To test app navigate in Intellij to the Test classes. In the test folder execute alll tests with the play button.
+
+##
+Link to repo: https://github.com/AlMaSm7/223_final_project
