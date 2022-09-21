@@ -1,3 +1,15 @@
+commit 64b3ca4b64488cc1883fdfbc40c5bbfc02b40e14
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 10:36:45 2022 +0200
+
+    fixed 404 error bug
+
+commit c98b086094ff8a5390f2d9a4ddc41d1aa916f157
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 09:26:09 2022 +0200
+
+    added git logs until the 21.09.2022
+
 commit 62c40fa0d1a180da36884ca0b16d67634b9a2091
 Author: alex_m_s <alex_m_s@yahoo.com>
 Date:   Wed Sep 21 09:16:20 2022 +0200
