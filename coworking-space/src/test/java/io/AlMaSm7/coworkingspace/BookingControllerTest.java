@@ -1,6 +1,5 @@
 package io.AlMaSm7.coworkingspace;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
@@ -30,9 +29,7 @@ import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -113,7 +110,8 @@ public class BookingControllerTest {
                 .andDo(print())
                 .andReturn();
 
-        Reservation res = objectMapper.readValue(response.getResponse().getContentAsString(), new TypeReference<>() {});
+        Reservation res = objectMapper.readValue(response.getResponse().getContentAsString(), new TypeReference<>() {
+        });
         assertEquals(res.getPlace().getId(), 2);
     }
 
@@ -172,7 +170,8 @@ public class BookingControllerTest {
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andReturn();
-        Reservation reservation = objectMapper.readValue(res.getResponse().getContentAsString(), new TypeReference<>() {});
+        Reservation reservation = objectMapper.readValue(res.getResponse().getContentAsString(), new TypeReference<>() {
+        });
         assertEquals(reservation.getAccepted(), 2);
     }
 
