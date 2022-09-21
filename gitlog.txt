@@ -1,0 +1,259 @@
+commit 62c40fa0d1a180da36884ca0b16d67634b9a2091
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 09:16:20 2022 +0200
+
+    corrected errors in the docuemntation diagrams
+
+commit b3520fab661984b0b883fcafd64ea65ee3389e18
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 09:15:46 2022 +0200
+
+    Exported all api request with postman
+
+commit 8c3993a303a888b74433637d8ab3f5ddae28ca79
+Merge: 1761675 e5c010e
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 09:15:06 2022 +0200
+
+    Merge branch 'main' of https://github.com/AlMaSm7/223_final_project
+
+commit 17616751daf67ab4af2fc94273b2044f115f115d
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Wed Sep 21 09:14:46 2022 +0200
+
+    reformatted the file
+
+commit e5c010e5f1c9761f29bd4a0b93dd2741de07d87f
+Author: Alex Smolders <70206577+AlMaSm7@users.noreply.github.com>
+Date:   Wed Sep 21 09:10:54 2022 +0200
+
+    Added extra instruction for swagger
+
+commit 78e6c5669e483e324059a59cdaef0818860cc2ae
+Author: Alex Smolders <70206577+AlMaSm7@users.noreply.github.com>
+Date:   Wed Sep 21 09:06:47 2022 +0200
+
+    updated readme with description, set up, test data
+    
+    Added requirements to readme. Set up, test data, project setup and a little description about the project
+
+commit 2a026de1c54a4819390f2288e0e835c2c838a9ab
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Tue Sep 20 23:05:23 2022 +0200
+
+    test: added testing to booking controller, corrected other classes
+
+commit 5b3f79860cf465e6c5e4721f5eb20eed6aa1ccda
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Tue Sep 20 18:31:26 2022 +0200
+
+    fixed admin endpoints
+
+commit ddd1f9aa014a0f00d72d5fef7487972791ff795e
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Tue Sep 20 16:30:58 2022 +0200
+
+    fixed JWT bugs, also
+    fixed infinite loop bug
+
+commit 0ba9a63039f1fd70b1a82c700adf9c54e0f63a38
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Tue Sep 20 15:19:36 2022 +0200
+
+    changed structure of database
+
+commit 58dcc811360e5c5bf4f8044515cd4910f7c0665d
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Tue Sep 20 15:19:03 2022 +0200
+
+    feat: added JWT configuratiojn
+
+commit 4e3431fcf4cebdd2f1ef9517ecead668324f63a8
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Tue Sep 20 11:13:17 2022 +0200
+
+    feat: Added all bookings feature
+
+commit 8d4643bb0121b096195594ceacdfc853578e9eae
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Mon Sep 19 16:08:04 2022 +0200
+
+    edited to best practices, added service layer for all controllers
+
+commit 0a1b08c4d365265d9c3527576284806abee324ae
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 22:36:11 2022 +0200
+
+    added CRUD to places table
+
+commit b6a5cccf103eb3a9c7a1c03f22303fe5f3edbed7
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 21:07:10 2022 +0200
+
+    corrected db schema, with new attribute in reservation
+
+commit f0045e85308909203d59e457deb9653afca061b6
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 21:06:30 2022 +0200
+
+    added add user function for admin
+
+commit 63fffcf84f9e623b329bc1389f56008bc20aa23e
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 20:54:05 2022 +0200
+
+    added accepted field based off of db
+
+commit fd63e8eebf9010a95e7dd92202b6ce7afee002a5
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 20:53:30 2022 +0200
+
+    added accepted field for member and admin
+
+commit a374bc79292d4aa9588fa352342d750a05c7a8fa
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 20:38:03 2022 +0200
+
+    feat: register works without JWT
+
+commit 776a7cded8845f18eae0d57b93febaa8f26de196
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 20:01:49 2022 +0200
+
+    feat_ completed user CRUD options
+
+commit 787d6c723fd3b4169a8e2548b117418af98d0352
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 19:07:45 2022 +0200
+
+    connected with Reservation according to database
+
+commit 4db34a623698af6c38f56459645b31ba2a70df63
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 19:07:21 2022 +0200
+
+    Added models, modefied db
+
+commit 348b53cdfd741be349535ce9fbbb30875c0be649
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 13:28:58 2022 +0200
+
+    Feat: configured user table with spring
+
+commit d79bcd3e34ab1b1c06400e446827e676c228ef6f
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 13:27:23 2022 +0200
+
+    added auth0 for jwt
+
+commit a33e336f2bd2d7bec9a0af9ffebd5b198d5630a2
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 13:01:40 2022 +0200
+
+    added hello world to controller
+
+commit 57adb2b1afd4de7aea1aa714ab7776cd37fdc05f
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 12:34:20 2022 +0200
+
+    added user model
+
+commit a605e0782908f4ee08bdad173c13357bea258486
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sun Sep 18 12:33:42 2022 +0200
+
+    added srping-web-security
+
+commit 54aaa6c72886d6447c91ac083d98382e296f104a
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 23:38:16 2022 +0200
+
+    feat: connect app with database
+
+commit 6d9b438754371e374f47520ae5c3944655094d67
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 23:31:24 2022 +0200
+
+    added volumes from docker
+
+commit 047926e0c14b9e7d67e719eb6a205faabf90e69f
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 23:19:17 2022 +0200
+
+    Added mariadb container with phpMyAdmin
+
+commit 7d2e050ed7694edce4528b068add5e498055b552
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 22:58:56 2022 +0200
+
+    added docker container for infrastructure
+
+commit 04c622797f6b3349dd472cf4d858557124180300
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 22:39:16 2022 +0200
+
+    added exported sql script
+
+commit 9f9f5004fefd42e9543a33c49ff7cc1ecde19b83
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 22:21:45 2022 +0200
+
+    Added sql ERM model
+
+commit e4aead286f75786495d21be1d062f130d234aa95
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 22:20:24 2022 +0200
+
+    added erm from mysql workbench
+
+commit 334b3c950a40fe12d74a37b1c537b47229c8db65
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 19:03:46 2022 +0200
+
+    added sequence diagram as uxf file
+
+commit 8fe7df3a4d274482c3888c00ac381b6db3764749
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 18:52:28 2022 +0200
+
+    added new springboot project
+
+commit bdf02a094030b88608536f4865481e12c039523b
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 18:38:28 2022 +0200
+
+    added draw.io of the use-case diagram
+
+commit e09540c4ddb318964177a6af82b9178644b1e9b0
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 18:37:53 2022 +0200
+
+    added image of the use-case diagram
+
+commit 5de32066d1a7eadc308d82c3d373bdf1dc5e43e2
+Merge: a658466 8c78a21
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 18:31:44 2022 +0200
+
+    Merge branch 'main' of https://github.com/AlMaSm7/223_final_project
+
+commit a658466e73676fff3d78f96105a7411ca768207b
+Author: alex_m_s <alex_m_s@yahoo.com>
+Date:   Sat Sep 17 18:28:39 2022 +0200
+
+    added dokumentation inlucding the Persona, user stories, use case
+    diagramm and endpoint documentation
+
+commit 8c78a215ef05ade4db1a72a531f9f6111867c1e5
+Author: Alex Smolders <70206577+AlMaSm7@users.noreply.github.com>
+Date:   Wed Sep 14 13:47:57 2022 +0200
+
+    Update README.md
+    
+    added the description of running the project
+
+commit 26c2bdd44e57f49bc720f62bca01a5c1e5b7eb5c
+Author: Alex Smolders <70206577+AlMaSm7@users.noreply.github.com>
+Date:   Tue Sep 13 16:39:24 2022 +0200
+
+    Initial commit
