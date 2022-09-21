@@ -54,7 +54,7 @@ public class UserController {
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         ResponseEntity res;
         try {
-            if (userService.updateUser(user) != null) {
+            if (userService.updateUser(user) == null) {
                 res = ResponseEntity.notFound().build();
             } else {
                 res = ResponseEntity.ok().body(user.getEmail() + "User updated successfully");

@@ -20,25 +20,21 @@ public class UserService {
     private final UserRepo userRepo;
     private final ReservationRepo resReop;
 
-    @Transactional
     public List<User> getUsers() {
         List<User> users = userRepo.findAll();
         return users;
     }
 
-    @Transactional
     public Optional<User> getUserById(long id) {
         Optional<User> user = userRepo.findById(id);
         return user;
     }
 
-    @Transactional
     public User createNewUser(User user) {
         userRepo.save(user);
         return user;
     }
 
-    @Transactional
     public User updateUser(User user) {
         Optional<User> userToUpdate = userRepo.findById(user.getId());
         User updatedUser;

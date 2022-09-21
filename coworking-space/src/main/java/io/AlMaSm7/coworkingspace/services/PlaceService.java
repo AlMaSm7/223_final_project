@@ -18,24 +18,20 @@ public class PlaceService {
     private final PlaceRepo placeRepo;
     private final ReservationRepo resRepo;
 
-    @Transactional
     public List<Place> getPlaces() {
         return placeRepo.findAll();
     }
 
-    @Transactional
     public Place addPlace(Place place) {
         placeRepo.save(place);
         return place;
     }
-    @Transactional
 
     public Place getPlaceById(long id) {
         Optional<Place> place = placeRepo.findById(id);
         return place.get();
     }
 
-    @Transactional
     public Place updatePlace(Place place) {
         Optional<Place> userToUpdate = placeRepo.findById(place.getId());
         Place updatedPlace = null;

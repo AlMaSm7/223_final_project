@@ -19,7 +19,6 @@ import java.util.Optional;
 public class BookingService {
     private final ReservationRepo reservationRepo;
 
-    @Transactional
     public String getReservationStateById(long id) {
         Optional<Reservation> reservation = reservationRepo.findById(id);
         String status = null;
@@ -29,7 +28,7 @@ public class BookingService {
         return status;
     }
 
-    @Transactional
+
     public Reservation createReservation(Reservation reservation) throws DateException {
         LocalDateTime startDate = reservation.getStartDate();
         LocalDateTime endDate = reservation.getEndDate();
@@ -49,7 +48,6 @@ public class BookingService {
         return reservation;
     }
 
-    @Transactional
     public List<Reservation> getReservations() {
         return reservationRepo.findAll();
     }
@@ -66,7 +64,6 @@ public class BookingService {
         return result;
     }
 
-    @Transactional
     public Reservation authorizeReservationProcess(ControlReservation controlReservation) throws StatusException {
         Optional<Reservation> res = reservationRepo.findById(controlReservation.getId());
         Reservation reservation = null;
@@ -79,7 +76,6 @@ public class BookingService {
         return reservation;
     }
 
-    @Transactional
     public Reservation cancelReservation(long id){
         Optional<Reservation> cancelRes = reservationRepo.findById(id);
         if(cancelRes.isPresent()){
